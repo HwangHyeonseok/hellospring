@@ -8,13 +8,19 @@ import java.util.List;
 import java.util.Optional;
 
 public class MemberService {
-    private final MemberRepository memberRepository = new MemoryMemberRepository(); // MemberRepository 중에서 MemoryMemberRepository
+
+    private final MemberRepository memberRepository; // MemberRepository 중에서 MemoryMemberRepository
+
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     // 회원 가입
     public Long join(Member member) {
         // 같은 이름이 있는 중복 회원 X
         Optional<Member> result = memberRepository.findByName(member.getName());
         validateDuplicateMember(result);
+        memberRepository.save(member);
         return member.getId();
     }
 
