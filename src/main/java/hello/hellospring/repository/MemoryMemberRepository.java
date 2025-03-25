@@ -1,4 +1,3 @@
-// 구현부
 package hello.hellospring.repository;
 
 import hello.hellospring.domain.Member;
@@ -43,6 +42,7 @@ public class MemoryMemberRepository implements MemberRepository {
     }
 
     // store을 모두 없애주는 로직
+    @Override
     public void clearStore() {
         store.clear();
     }

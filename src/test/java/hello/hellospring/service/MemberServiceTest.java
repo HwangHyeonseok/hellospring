@@ -7,6 +7,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class MemberServiceTest {
@@ -68,11 +71,40 @@ class MemberServiceTest {
 
     }
 
+    // 전체 회원 조회 체크 (2개 정도 넣어보고 2개가 나오는지 테스트)
     @Test
     void findMembers() {
+        // given
+        Member member1 = new Member();
+        member1.setName("spring1");
+        memberRepository.save(member1);
+
+        Member member2 = new Member();
+        member2.setName("spring2");
+        memberRepository.save(member2);
+
+        // when
+        List<Member> result = memberService.findMembers();
+
+        // then
+        Assertions.assertThat(result.size()).isEqualTo(2);
     }
 
+    // ID에 맞는 1명 조회 (2개 정도 넣어보고 그 특정 ID에 맞는 사람이 조회되는지 검증)
     @Test
     void findOne() {
+        // given
+        Member member1 = new Member();
+        member1.setName("spring1");
+        memberRepository.save(member1);
+        Member member2 = new Member();
+        member2.setName("spring2");
+        memberRepository.save(member2);
+
+        // when
+        Member result = memberService.findOne(memberRepository.findByName("spring1").get().getId()).get();
+
+        // then
+        Assertions.assertThat(result).isEqualTo(member1);
     }
 }
