@@ -30,7 +30,7 @@ class MemberServiceTest {
     // 테스트가 끝난 뒤 저장소를 비워주는 역할
     @AfterEach
     public void afterEach() {
-        memberRepository.clearStore();
+        ((MemoryMemberRepository) memberRepository).clearStore(); // 다운캐스팅해서 사용
     }
 
 

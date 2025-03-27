@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 
 import java.util.*;
 
-@Controller
 public class MemoryMemberRepository implements MemberRepository {
     private static Map<Long, Member> store = new HashMap<>();
     private static Long sequence = 0L;
@@ -44,7 +43,6 @@ public class MemoryMemberRepository implements MemberRepository {
     }
 
     // store을 모두 없애주는 로직
-    @Override
     public void clearStore() {
         store.clear();
     }
