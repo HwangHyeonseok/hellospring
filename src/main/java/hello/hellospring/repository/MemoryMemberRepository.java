@@ -44,7 +44,6 @@ public class MemoryMemberRepository implements MemberRepository {
     }
 
     // store을 모두 없애주는 로직
-    @Override
     public void clearStore() {
         store.clear();
     }
