@@ -10,7 +10,7 @@ public class Member {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @Column(name = "username") // DB의 칼럼이 username인 것과 매핑된다.
+//    @Column(name = "username") // 자바에서 필드 이름이 name 이고, DB에서 컬럼 이름은 username 이라서 이를 매핑해주는 작업
     private String name;
 
     public Long getId() {
