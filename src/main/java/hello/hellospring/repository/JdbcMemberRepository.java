@@ -5,7 +5,9 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;public class JdbcMemberRepository implements MemberRepository {
+import java.util.Optional;
+
+public class JdbcMemberRepository implements MemberRepository {
     private final DataSource dataSource;
     public JdbcMemberRepository(DataSource dataSource) {
         this.dataSource = dataSource;
@@ -132,5 +134,9 @@ import java.util.Optional;public class JdbcMemberRepository implements MemberRep
     }
     private void close(Connection conn) throws SQLException {
         DataSourceUtils.releaseConnection(conn, dataSource);
+    }
+    @Override
+    public void clearStore() {
+
     }
 }
