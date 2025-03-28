@@ -12,7 +12,7 @@ import javax.sql.DataSource;
 
 @Configuration // @Bean에 등록된 메서드들을 스프링 컨테이너에 올려준다.
 public class SpringConfig {
-
+    // DI
     private final MemberRepository memberRepository;
 
     @Autowired
