@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-@Transactional
+@Transactional // JPA는 행의 변화가 있을 때 (INSERT, UPDATE, DELETE) 트랜잭션 안에서 실행이 되어야 한다.
 public class MemberService {
 
     private final MemberRepository memberRepository; // MemberRepository 중에서 MemoryMemberRepository

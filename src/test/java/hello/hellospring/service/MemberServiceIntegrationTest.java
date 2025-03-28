@@ -21,7 +21,6 @@ class MemberServiceIntegrationTest {
     @Autowired MemberRepository memberRepository;
     @Autowired MemberService memberService;
 
-
     // 회원가입을 시키고 나서 잘 해당 유저가 추가가 되었는지 체크
     @Test
     void 회원가입() throws Exception {     // 테스트 코드는 한글로 작성 가능하다!

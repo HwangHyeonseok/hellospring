@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 
-@Configuration
+@Configuration // @Bean에 등록된 메서드들을 스프링 컨테이너에 올려준다.
 public class SpringConfig {
 
     private final MemberRepository memberRepository;
